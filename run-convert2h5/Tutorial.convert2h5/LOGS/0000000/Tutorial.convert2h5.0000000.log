@@ -1,0 +1,2 @@
+RUNNING ./convert_edepsim_roottoh5.py --input_file /pscratch/sd/s/sthoma31/2x2tut_outB/run-edep-sim/Tutorial.edep.nu/EDEPSIM/0000000/Tutorial.edep.nu.0000001.EDEPSIM.root --output_file /global/u2/s/sthoma31/retry/2x2_sim/tmp/run-convert2h5/Tutorial.convert2h5/Tutorial.convert2h5.0000000.EDEPSIM.hdf5 
+  0%|          | 0/100 [00:00<?, ?it/s]  1%|          | 1/100 [00:00<00:11,  8.56it/s] 52%|█████▏    | 52/100 [00:00<00:00, 284.08it/s]100%|██████████| 100/100 [00:00<00:00, 320.48it/s]

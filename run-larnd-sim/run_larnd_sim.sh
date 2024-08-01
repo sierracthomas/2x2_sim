@@ -12,6 +12,7 @@ if [[ -z "$ARCUBE_RUNTIME" || "$ARCUBE_RUNTIME" == "NONE" ]]; then
     fi
     source ../util/init.inc.sh
     source "$ARCUBE_INSTALL_DIR/larnd.venv/bin/activate"
+    module load cudatoolkit/11.7
 else
     source ../util/reload_in_container.inc.sh
     source ../util/init.inc.sh

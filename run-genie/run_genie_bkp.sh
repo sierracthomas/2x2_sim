@@ -35,14 +35,14 @@ ARCUBE_XSEC_FILE=$(realpath "$ARCUBE_XSEC_FILE")
 tmpDir=$(mktemp -d)
 pushd "$tmpDir"
 
-#rm -f "$genieOutPrefix".*
+rm -f "$genieOutPrefix".*
 
 args_gevgen_fnal=( \
-    -n 10000 \
-    -p 14 \
-    -e 0.70 \
-    -t 1000180400 \
+    -e "$ARCUBE_EXPOSURE" \
+    -f "$dk2nuFile,$ARCUBE_DET_LOCATION" \
+    -g "$geomFile" \
     -r "$runNo" \
+    -L cm -D g_cm3 \
     --cross-sections "$ARCUBE_XSEC_FILE" \
     --tune "$ARCUBE_TUNE" \
     --seed "$seed" \
@@ -54,17 +54,16 @@ args_gevgen_fnal=( \
 [ -n "${ARCUBE_FID_CUT_STRING}" ] && args_gevgen_fnal+=( -F "$ARCUBE_FID_CUT_STRING" )
 [ -n "${ARCUBE_ZMIN}" ] && args_gevgen_fnal+=( -z "$ARCUBE_ZMIN" )
 
-run gevgen "${args_gevgen_fnal[@]}"
+run gevgen_fnal "${args_gevgen_fnal[@]}"
 
-#statDir=$logBase/STATUS/$subDir
-#mkdir -p "$statDir"
-#mv genie-mcjob-"$runNo".status "$statDir/$outName.status"
-#popd
-#rmdir "$tmpDir"
+statDir=$logBase/STATUS/$subDir
+mkdir -p "$statDir"
+mv genie-mcjob-"$runNo".status "$statDir/$outName.status"
+popd
+rmdir "$tmpDir"
 
 # use consistent naming convention w/ rest of sim chain
-echo $genieOutPrefix
-mv "$genieOutPrefix" "$genieOutPrefix".GHEP.root
+mv "$genieOutPrefix"."$runNo".ghep.root "$genieOutPrefix".GHEP.root
 
 run gntpc -i "$genieOutPrefix".GHEP.root -f rootracker \
     -o "$genieOutPrefix".GTRAC.root

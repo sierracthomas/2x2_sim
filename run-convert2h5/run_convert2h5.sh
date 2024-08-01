@@ -29,14 +29,19 @@ if [[ "$ARCUBE_KEEP_ALL_DETS" == "1" ]]; then
 else
     keepAllDets=""
 fi
-
+echo $globalIdx
 # After going from ROOT 6.14.06 to 6.28.06, apparently we need to point CPATH to
 # the edepsim-io headers. Otherwise convert2h5 fails. (This "should" be set in
 # the container already.)
 export CPATH=$EDEPSIM/include/EDepSim:$CPATH
+# /pscratch/sd/s/sthoma31/2x2tut_outB/run-hadd/Tutorial.edep.nu.hadd/EDEPSIM/0000000/Tutorial.edep.nu.hadd.0000000.EDEPSIM.root
 
+inFile=$CURRENT_FILE
+echo $inFile
+#/pscratch/sd/s/sthoma31/2x2tut_outB/run-edep-sim/Tutorial.edep.nu/EDEPSIM/0000000/Tutorial.edep.nu.0000001.EDEPSIM.root
 run ./convert_edepsim_roottoh5.py --input_file "$inFile" --output_file "$outFile" "$keepAllDets"
 
 h5OutDir=$outDir/EDEPSIM_H5/$subDir
 mkdir -p "$h5OutDir"
 mv "$outFile" "$h5OutDir"
+echo $h5OutDir

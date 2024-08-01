@@ -13,8 +13,7 @@
 /generator/kinematics/set rooTracker
 # input is set in slurm_task.sh
 # /generator/kinematics/rooTracker/input gntp.0.roo.cherry.root
-/generator/position/set fixed
-/generator/position/fixed/position 0 0 -500 mm
+/generator/position/set free
 /generator/time/set free
 /generator/count/fixed/number 1
 /generator/count/set fixed
