@@ -11,8 +11,8 @@
 /edep/update
 
 
-/gps/particle e-
-/gps/energy .547 MeV
+/gps/particle gamma
+/gps/energy 9.8 MeV
 /gps/position 0 0 -500 mm
 
 
