@@ -11,19 +11,19 @@
 /edep/update
 
 
-#/gps/particle e-
-#/gps/energy 600 MeV
-#/gps/position 0 0 -500 mm
+/gps/particle e-
+/gps/energy .547 MeV
+/gps/position 0 0 -500 mm
 
 
-/generator/kinematics/set rooTracker
+#/generator/kinematics/set rooTracker
 # input is set in slurm_task.sh
 # /generator/kinematics/rooTracker/input gntp.0.roo.cherry.root
-/generator/position/set fixed
-/generator/position/fixed/position 0 0 -500 mm
-/generator/time/set free
-/generator/count/fixed/number 1
-/generator/count/set fixed
-/generator/add
-
+#/generator/position/set fixed
+#/generator/position/fixed/position 0 0 -500 mm
+##/generator/time/set free
+#/generator/count/fixed/number 1
+#/generator/count/set fixed
+#/generator/add
+/run/beamOn
 /edep/db/set/requireEventsWithHits true

@@ -20,11 +20,11 @@ export ARCUBE_OUT_NAME=Tutorial.genie.nu
 
 #ARCUBE_INDEX=1 ./run_genie.sh 
 
-for i in $(seq 0 9); do
-    ARCUBE_INDEX=$i ./run_genie.sh &
-done
+#for i in $(seq 0 9); do
+#    ARCUBE_INDEX=$i ./run_genie.sh &
+#done
 
-wait
+#wait
 
 cd $TWOBYTWO_SIM/run-edep-sim
 
