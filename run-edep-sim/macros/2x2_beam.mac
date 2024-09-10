@@ -10,6 +10,12 @@
 
 /edep/update
 
+
+#/gps/particle e-
+#/gps/energy 600 MeV
+#/gps/position 0 0 -500 mm
+
+
 /generator/kinematics/set rooTracker
 # input is set in slurm_task.sh
 # /generator/kinematics/rooTracker/input gntp.0.roo.cherry.root
