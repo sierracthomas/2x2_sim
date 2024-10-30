@@ -18,8 +18,6 @@ export ARCUBE_RUN_OFFSET=0
 export ARCUBE_XSEC_FILE=/dvs_ro/cfs/cdirs/dune/users/mkramer/2x2EventGeneration/inputs/NuMI/genie_xsec-3.04.00-noarch-AR2320i00000-k250-e1000/v3_04_00/NULL/AR2320i00000-k250-e1000/data/gxspl-NUsmall.xml
 export ARCUBE_OUT_NAME=Tutorial.genie.nu
 
-#ARCUBE_INDEX=1 ./run_genie.sh 
-
 for i in $(seq 0 25); do
     ARCUBE_INDEX=$i ./run_genie.sh &
 done
@@ -36,15 +34,12 @@ export ARCUBE_GEOM_EDEP=geometry/Merged2x2MINERvA_v4/Merged2x2MINERvA_v4_noRock.
 export ARCUBE_RUN_OFFSET=0
 export ARCUBE_OUT_NAME=Tutorial.edep.nu
 
-#ARCUBE_INDEX=1 ./run_edep_sim.sh
-
 for i in $(seq 0 25); do
     ARCUBE_INDEX=$i ./run_edep_sim.sh &
 done
 
 wait
 
-#export ARCUBE_INDEX=1
 export ARCUBE_HADD_FACTOR=1
 
 
@@ -54,8 +49,7 @@ export ARCUBE_CONTAINER=mjkramer/sim2x2:ndlar011
 
 export ARCUBE_ACTIVE_VOLUME=volTPCActive
 export ARCUBE_INDEX=0
-#/pscratch/sd/s/sthoma31/2x2tut_out_oct/run-edep-sim/Tutorial.edep.nu/EDEPSIM/0000000/
-for filename in /pscratch/sd/s/sthoma31/2x2tut_out_oct/run-edep-sim/Tutorial.edep.nu/EDEPSIM/0000000/Tutorial.edep.nu.*.root; do    
+for filename in $ARCUBE_OUTDIR_BASE/run-edep-sim/Tutorial.edep.nu/EDEPSIM/0000000/Tutorial.edep.nu.*.root; do    
     export CURRENT_FILE=$filename
     export ARCUBE_OUT_NAME=Tutorial.convert2h5
     ./run_convert2h5.sh
