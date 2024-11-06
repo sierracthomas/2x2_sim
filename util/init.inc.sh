@@ -13,7 +13,7 @@ baseDir=$(realpath "$PWD"/..)
 # Start seeds at 1 instead of 0, just in case GENIE does something
 # weird when given zero (e.g. use the current time)
 # NOTE: We just use the fixed Edep default seed of ???.
-seed=$((1 + ARCUBE_INDEX))
+seed=$((10 + ARCUBE_INDEX))
 echo "Seed is $seed"
 
 # NOTE: ARCUBE_INDEX is a "number" while globalIdx is the zero-padded string

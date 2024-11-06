@@ -38,9 +38,9 @@ pushd "$tmpDir"
 #rm -f "$genieOutPrefix".*
 
 args_gevgen_fnal=( \
-    -n 10 \
+    -n 5000 \
     -p 12 \
-    -e 0.0473 \
+    -e .700 \
     -t 1000180400 \
     -r "$runNo" \
     --cross-sections "$ARCUBE_XSEC_FILE" \
