@@ -12,7 +12,7 @@
 
 
 /gps/particle gamma
-/gps/position 0 0 -500 mm
+/gps/position 0 0 0 mm
 # energy distribution
 /gps/ene/type User
 /gps/hist/type energy

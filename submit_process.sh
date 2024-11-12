@@ -3,7 +3,7 @@
 #SBATCH -N 1
 #SBATCH -C cpu
 #SBATCH -q regular
-#SBATCH -J nu_e
+#SBATCH -J gammas
 #SBATCH -A dune
 #SBATCH -t 15:00:00
 

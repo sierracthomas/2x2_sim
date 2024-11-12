@@ -1,12 +1,12 @@
 
 # set number of events for each run here:
-export EventsPerRun=10
+export EventsPerRun=5000
 
 cd ..
 export TWOBYTWO_SIM=$PWD/2x2_sim
 cd $TWOBYTWO_SIM
-export ARCUBE_OUTDIR_BASE=$SCRATCH/2x2tut_out_gammas
-export ARCUBE_LOGDIR_BASE=$SCRATCH/2x2tut_log_gammas
+export ARCUBE_OUTDIR_BASE=$SCRATCH/2x2tut_out_gammas_centering
+export ARCUBE_LOGDIR_BASE=$SCRATCH/2x2tut_log_gammas_centering
 mkdir -p $ARCUBE_OUTDIR_BASE $ARCUBE_LOGDIR_BASE
 
 cd $TWOBYTWO_SIM/run-genie
@@ -42,7 +42,7 @@ export ARCUBE_OUT_NAME=Tutorial.edep.nu
 
 #ARCUBE_INDEX=1 ./run_edep_sim.sh
 
-for i in $(seq 0 9); do
+for i in $(seq 0 25); do
     ARCUBE_INDEX=$i ./run_edep_sim.sh &
 done
 
@@ -59,7 +59,7 @@ export ARCUBE_CONTAINER=mjkramer/sim2x2:ndlar011
 export ARCUBE_ACTIVE_VOLUME=volTPCActive
 export ARCUBE_INDEX=0
 
-for filename in $ARCUBE_OUTDIR_BASE/run-edep-sim/Tutorial.edep.nu/EDEPSIM/0000000/Tutorial.edep.nu.000000*.root; do    
+for filename in $ARCUBE_OUTDIR_BASE/run-edep-sim/Tutorial.edep.nu/EDEPSIM/0000000/Tutorial.edep.nu.*.root; do    
     export CURRENT_FILE=$filename
     export ARCUBE_OUT_NAME=Tutorial.convert2h5
     ./run_convert2h5.sh
