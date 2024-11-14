@@ -1,6 +1,6 @@
 
 # set number of events for each run here:
-export EventsPerRun=5000
+export EventsPerRun=10
 
 cd ..
 export TWOBYTWO_SIM=$PWD/2x2_sim
@@ -16,7 +16,7 @@ export ARCUBE_CONTAINER=mjkramer/sim2x2:genie_edep.3_04_00.20230912
 export ARCUBE_DET_LOCATION=MiniRun5-Nu
 export ARCUBE_DK2NU_DIR=/dvs_ro/cfs/cdirs/dune/users/mkramer/2x2EventGeneration/NuMI_dk2nu/newtarget-200kA_20220409
 export ARCUBE_EXPOSURE=1E15
-export ARCUBE_GEOM=geometry/Merged2x2MINERvA_v4/Merged2x2MINERvA_v4_noRock.gdml
+export ARCUBE_GEOM=geometry/Merged2x2MINERvA_v4/ArgonCube.gdml
 export ARCUBE_TUNE=AR23_20i_00_000
 export ARCUBE_RUN_OFFSET=0
 export ARCUBE_XSEC_FILE=/dvs_ro/cfs/cdirs/dune/users/mkramer/2x2EventGeneration/inputs/NuMI/genie_xsec-3.04.00-noarch-AR2320i00000-k250-e1000/v3_04_00/NULL/AR2320i00000-k250-e1000/data/gxspl-NUsmall.xml
@@ -36,7 +36,7 @@ export ARCUBE_RUNTIME=SHIFTER
 export ARCUBE_CONTAINER=mjkramer/sim2x2:ndlar011
 export ARCUBE_GENIE_NAME=Tutorial.genie.nu
 export ARCUBE_EDEP_MAC=macros/2x2_beam.mac
-export ARCUBE_GEOM_EDEP=geometry/Merged2x2MINERvA_v4/Merged2x2MINERvA_v4_noRock.gdml
+export ARCUBE_GEOM=geometry/Merged2x2MINERvA_v4/ArgonCube.gdml
 export ARCUBE_RUN_OFFSET=0
 export ARCUBE_OUT_NAME=Tutorial.edep.nu
 

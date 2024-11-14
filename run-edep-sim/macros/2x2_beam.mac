@@ -6,13 +6,13 @@
 # This ensures that each hit segment in the LAr is only associated with one
 # trajectory. It must be run BEFORE /edep/update.
 # https://github.com/DUNE/2x2_sim/issues/20
-#/edep/hitSeparation volTPCActive -1 mm
+/edep/hitSeparation volTPCActive -1 mm
 
 /edep/update
 
 
 /gps/particle e-
-/gps/position 0 0 0 mm
+/gps/position 500 500 -500 mm
 # energy distribution
 /gps/ene/type User
 /gps/hist/type energy
