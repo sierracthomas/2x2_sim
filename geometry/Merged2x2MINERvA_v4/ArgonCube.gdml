@@ -36,15 +36,15 @@
  </materials>
 
  <solids>
-  <box lunit="mm" name="Box" x="2000" y="2000" z="2000"/>
-  <box lunit="mm" name="WorldBox" x="2400" y="2400" z="2400"/>
+  <box lunit="mm" name="Box" x="1300" y="1300" z="1300"/>
+  <box lunit="mm" name="WorldBox" x="1700" y="1700" z="1700"/>
  </solids>
 
  <structure>
-  <volume name="Boxvol" >
+  <volume name="volTPCActive" >
    <materialref ref="LAr" />
    <solidref ref="Box" />
-   <auxiliary auxtype="SensDet" auxvalue="Boxvol"/>
+   <auxiliary auxtype="SensDet" auxvalue="volTPCActive"/>
    <auxiliary auxtype="Color" auxvalue="Blue"/>
   </volume>
 
@@ -52,7 +52,7 @@
    <materialref ref="Air" />
    <solidref ref="WorldBox" />
    <physvol>
-    <volumeref ref="Boxvol" />
+    <volumeref ref="volTPCActive" />
     <positionref ref="R"  />
    </physvol>
   </volume>
