@@ -44,6 +44,7 @@ export ARCUBE_OUT_NAME=Tutorial.edep.nu
 
 for i in $(seq 0 25); do
     ARCUBE_INDEX=$i ./run_edep_sim.sh &
+    sleep 1
 done
 
 wait

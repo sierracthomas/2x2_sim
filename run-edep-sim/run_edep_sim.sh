@@ -24,7 +24,7 @@ export ARCUBE_GEOM_EDEP=$baseDir/${ARCUBE_GEOM_EDEP:-$ARCUBE_GEOM}
 #    <(echo "$edepCode") "$ARCUBE_EDEP_MAC"
 
 export nEvents=$EventsPerRun
-run edep-sim -C -g "$ARCUBE_GEOM_EDEP" -o "$edepRootFile" -e "$nEvents" "$ARCUBE_EDEP_MAC"
+run edep-sim -C -s -g "$ARCUBE_GEOM_EDEP" -o "$edepRootFile" -e "$nEvents" "$ARCUBE_EDEP_MAC"
 
 mkdir -p "$outDir/EDEPSIM/$subDir"
 mv "$edepRootFile" "$outDir/EDEPSIM/$subDir"

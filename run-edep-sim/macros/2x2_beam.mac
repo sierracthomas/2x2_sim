@@ -2,14 +2,13 @@
 
 ## Not everything is LAr
 /edep/phys/ionizationModel 0
-
+/edep/random/timeRandomSeed
 # This ensures that each hit segment in the LAr is only associated with one
 # trajectory. It must be run BEFORE /edep/update.
 # https://github.com/DUNE/2x2_sim/issues/20
 /edep/hitSeparation volTPCActive -1 mm
 
 /edep/update
-
 
 /gps/particle gamma
 /gps/position 0 0 500 mm
@@ -23,14 +22,6 @@
 /gps/hist/point 9.8 1.
 
 
-#/generator/kinematics/set rooTracker
-# input is set in slurm_task.sh
-# /generator/kinematics/rooTracker/input gntp.0.roo.cherry.root
-#/generator/position/set fixed
-#/generator/position/fixed/position 0 0 -500 mm
-##/generator/time/set free
-#/generator/count/fixed/number 1
-#/generator/count/set fixed
-#/generator/add
+
 /run/beamOn
 /edep/db/set/requireEventsWithHits true
