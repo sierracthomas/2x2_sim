@@ -1,12 +1,12 @@
 
 # set number of events for each run here:
-export EventsPerRun=10
+export EventsPerRun=150
 
 cd ..
 export TWOBYTWO_SIM=$PWD/2x2_sim
 cd $TWOBYTWO_SIM
-export ARCUBE_OUTDIR_BASE=$SCRATCH/2x2tut_out_ar39
-export ARCUBE_LOGDIR_BASE=$SCRATCH/2x2tut_log_ar39
+export ARCUBE_OUTDIR_BASE=$SCRATCH/2x2tut_out_ar39_iso
+export ARCUBE_LOGDIR_BASE=$SCRATCH/2x2tut_log_ar39_iso
 mkdir -p $ARCUBE_OUTDIR_BASE $ARCUBE_LOGDIR_BASE
 
 cd $TWOBYTWO_SIM/run-genie
@@ -40,11 +40,11 @@ export ARCUBE_GEOM=geometry/Merged2x2MINERvA_v4/ArgonCube.gdml
 export ARCUBE_RUN_OFFSET=0
 export ARCUBE_OUT_NAME=Tutorial.edep.nu
 
-ARCUBE_INDEX=1 ./run_edep_sim.sh
+#ARCUBE_INDEX=1 ./run_edep_sim.sh
 
-#for i in $(seq 0 1); do
-#    ARCUBE_INDEX=$i ./run_edep_sim.sh &
-#done
+for i in $(seq 0 0); do
+    ARCUBE_INDEX=$i ./run_edep_sim.sh &
+done
 
 wait
 
