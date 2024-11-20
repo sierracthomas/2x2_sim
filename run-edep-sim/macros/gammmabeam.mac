@@ -1,0 +1,9 @@
+/gps/source/add 1.
+
+/gps/particle gamma
+/gps/position 0 0 0 mm
+/gps/ang/type iso
+/gps/ene/type Mono
+/gps/ene/mono {ENERGY} MeV
+/gps/ang/type iso
+
