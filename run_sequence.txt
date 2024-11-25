@@ -1,24 +1,26 @@
 cd ..
 export TWOBYTWO_SIM=$PWD/2x2_sim
 cd $TWOBYTWO_SIM
-export ARCUBE_OUTDIR_BASE=$SCRATCH/2x2tut_out_HE_14
-export ARCUBE_LOGDIR_BASE=$SCRATCH/2x2tut_log_HE_14
+export ARCUBE_OUTDIR_BASE=$SCRATCH/2x2tut_SN_neutrino
+export ARCUBE_LOGDIR_BASE=$SCRATCH/2x2tut_SN_neutrino
 mkdir -p $ARCUBE_OUTDIR_BASE $ARCUBE_LOGDIR_BASE
 
 cd $TWOBYTWO_SIM/run-genie
-
+export EMIN=0.0
+export EMAX=.100
+export GENIE_HIST=/global/u2/s/sthoma31/retry/2x2_sim/run-genie/generate_hists/12.0_0_hist.dat
 export ARCUBE_RUNTIME=SHIFTER
 export ARCUBE_CONTAINER=mjkramer/sim2x2:genie_edep.3_04_00.20230912
 export ARCUBE_DET_LOCATION=MiniRun5-Nu
 export ARCUBE_DK2NU_DIR=/dvs_ro/cfs/cdirs/dune/users/mkramer/2x2EventGeneration/NuMI_dk2nu/newtarget-200kA_20220409
 export ARCUBE_EXPOSURE=1E15
-export ARCUBE_GEOM=geometry/Merged2x2MINERvA_v4/ArgonCube.gdml
+export ARCUBE_GEOM=geometry/Merged2x2MINERvA_v4/ArgonCube500.gdml
 export ARCUBE_TUNE=AR23_20i_00_000
 export ARCUBE_RUN_OFFSET=0
 export ARCUBE_XSEC_FILE=/dvs_ro/cfs/cdirs/dune/users/mkramer/2x2EventGeneration/inputs/NuMI/genie_xsec-3.04.00-noarch-AR2320i00000-k250-e1000/v3_04_00/NULL/AR2320i00000-k250-e1000/data/gxspl-NUsmall.xml
 export ARCUBE_OUT_NAME=Tutorial.genie.nu
 
-for i in $(seq 0 50); do
+for i in $(seq 0 0); do
     ARCUBE_INDEX=$i ./run_genie.sh &
 done
 
@@ -30,11 +32,11 @@ export ARCUBE_RUNTIME=SHIFTER
 export ARCUBE_CONTAINER=mjkramer/sim2x2:ndlar011
 export ARCUBE_GENIE_NAME=Tutorial.genie.nu
 export ARCUBE_EDEP_MAC=macros/2x2_beam.mac
-export ARCUBE_GEOM_EDEP=geometry/Merged2x2MINERvA_v4/ArgonCube.gdml
+export ARCUBE_GEOM_EDEP=geometry/Merged2x2MINERvA_v4/ArgonCube500.gdml
 export ARCUBE_RUN_OFFSET=0
 export ARCUBE_OUT_NAME=Tutorial.edep.nu
 
-for i in $(seq 0 50); do
+for i in $(seq 0 0); do
     ARCUBE_INDEX=$i ./run_edep_sim.sh &
 done
 
@@ -56,3 +58,5 @@ for filename in $ARCUBE_OUTDIR_BASE/run-edep-sim/Tutorial.edep.nu/EDEPSIM/000000
     ARCUBE_INDEX=$((ARCUBE_INDEX+1))
 done
 
+cd ..
+top
