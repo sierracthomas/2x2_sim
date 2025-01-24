@@ -38,7 +38,7 @@ pushd "$tmpDir"
 #rm -f "$genieOutPrefix".*
 
 args_gevgen_fnal=( \
-    -n 500 \
+    -n 10 \
     -p 12 \
     -e $EMIN,$EMAX \
     -f $GENIE_HIST

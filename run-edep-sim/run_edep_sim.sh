@@ -20,7 +20,12 @@ edepCode="/generator/kinematics/rooTracker/input $genieFile
 # The geometry file is given relative to the root of 2x2_sim
 export ARCUBE_GEOM_EDEP=$baseDir/${ARCUBE_GEOM_EDEP:-$ARCUBE_GEOM}
 
-run edep-sim -C -g "$ARCUBE_GEOM_EDEP" -o "$edepRootFile" -e "$nEvents" \
+
+echo $MARLEY_FILE
+echo "ABOVE"
+cp $MARLEY_FILE events.txt
+
+run edep-sim -C -g "$ARCUBE_GEOM_EDEP" -o "$edepRootFile" -e 5000 \
     <(echo "$edepCode") "$ARCUBE_EDEP_MAC"
 
 #run edep-sim -C -g "$ARCUBE_GEOM_EDEP" -o "$edepRootFile" -e "$nEvents" "$ARCUBE_EDEP_MAC"
